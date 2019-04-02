@@ -45,7 +45,7 @@ def system_message(request, template="system_message.html"):
                 broadcast_channel(data, channel="room-" + room)
             else:
                 broadcast(data)
-        except NoSocket, e:
+        except NoSocket as e:
             context["message"] = e
         else:
             context["message"] = "Message sent"
