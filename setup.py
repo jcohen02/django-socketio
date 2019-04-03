@@ -12,7 +12,7 @@ setup(
     long_description = open("README.rst").read(),
     url = "http://github.com/stephenmcd/django-socketio",
     py_modules=["django_socketio",],
-    install_requires=["gevent-socketio==0.2.1", "sphinx-me", "django>=1.4.8"],
+    install_requires=["gevent-socketio==0.3.6", "sphinx-me", "django>=1.11"],
     zip_safe = False,
     include_package_data = True,
     packages = find_packages(),
@@ -23,7 +23,10 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
         "Operating System :: POSIX",
-        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.5"
+        "Programming Language :: Python :: 3.6"
+        "Programming Language :: Python :: 3.7"
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
         "Topic :: Internet :: WWW/HTTP :: WSGI",
