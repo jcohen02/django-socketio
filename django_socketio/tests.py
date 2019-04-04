@@ -1,5 +1,5 @@
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.test import Client
 from django.test import TestCase
 
@@ -73,7 +73,7 @@ class Tests(TestCase):
         Ensure that the socketio view returns a valid response and
         that signals are received. Signals are checked by pulling
         each event name off a list of events. The error and
-        invalid_channel events should be the only remaning.
+        invalid_channel events should be the only remaining.
 
         The connect signal is used for some setup such as faking
         channel subscription and removing any non-test event handlers
@@ -103,6 +103,7 @@ class Tests(TestCase):
 
         @events.on_message(channel="invalid_channel")
         def test_invalid_channel_message(request, socket, context, message):
+            print('Invalid channel: %s (ctx: %s)' % (message, context))
             event_names.remove("invalid_channel")
 
         @events.on_disconnect(channel="test")

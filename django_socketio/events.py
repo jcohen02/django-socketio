@@ -1,6 +1,6 @@
 
 import re
-
+from six.moves import filter
 
 class EventError(Exception):
     pass
@@ -67,7 +67,7 @@ class Event(object):
                 matches = [pattern.match(args[0])]
             else:
                 matches = [pattern.match(c) for c in socket.channels if pattern]
-            if no_channel or filter(None, matches):
+            if no_channel or [x for x in filter(None, matches)]:
                 handler(request, socket, context, *args)
 
 
